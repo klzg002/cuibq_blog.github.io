@@ -108,24 +108,27 @@
 
 
 
-  <meta name="description" content="工作生活中总有很多随着时间被遗忘的东西,所以我决定写下来,防止老了记不住">
-<meta name="keywords" content="IT、live">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的七秒记忆">
-<meta property="og:url" content="http://blog.cuibq.com/index.html">
+  <meta name="description" content="问题：ceph osd fullCeph 不允许你向满的 OSD 写入数据，以免丢失数据。在正常的集群中，你应该能收到集群空间将满的警告。 mon osd full ratio 默认为 0.95 、或达到 95% 时它将阻止客户端写入数据。 mon osd nearfull ratio 默认为 0.85 、也就是说达到容量的 85% 时它会产生健康警告。  使用下面命令修改阀值  ceph osd">
+<meta name="keywords" content="存储,ceph">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ceph问题汇总-(NO FREE DRIVE SPACE)">
+<meta property="og:url" content="http://blog.cuibq.com/2018/11/16/SPACE“/index.html">
 <meta property="og:site_name" content="我的七秒记忆">
-<meta property="og:description" content="工作生活中总有很多随着时间被遗忘的东西,所以我决定写下来,防止老了记不住">
+<meta property="og:description" content="问题：ceph osd fullCeph 不允许你向满的 OSD 写入数据，以免丢失数据。在正常的集群中，你应该能收到集群空间将满的警告。 mon osd full ratio 默认为 0.95 、或达到 95% 时它将阻止客户端写入数据。 mon osd nearfull ratio 默认为 0.85 、也就是说达到容量的 85% 时它会产生健康警告。  使用下面命令修改阀值  ceph osd">
 <meta property="og:locale" content="chinese">
+<meta property="og:image" content="http://blog.cuibq.com/2018/11/16/SPACE“/ceph-data-cluster.png">
+<meta property="og:updated_time" content="2018-11-27T04:16:35.085Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的七秒记忆">
-<meta name="twitter:description" content="工作生活中总有很多随着时间被遗忘的东西,所以我决定写下来,防止老了记不住">
+<meta name="twitter:title" content="ceph问题汇总-(NO FREE DRIVE SPACE)">
+<meta name="twitter:description" content="问题：ceph osd fullCeph 不允许你向满的 OSD 写入数据，以免丢失数据。在正常的集群中，你应该能收到集群空间将满的警告。 mon osd full ratio 默认为 0.95 、或达到 95% 时它将阻止客户端写入数据。 mon osd nearfull ratio 默认为 0.85 、也就是说达到容量的 85% 时它会产生健康警告。  使用下面命令修改阀值  ceph osd">
+<meta name="twitter:image" content="http://blog.cuibq.com/2018/11/16/SPACE“/ceph-data-cluster.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://blog.cuibq.com/">
+  <link rel="canonical" href="http://blog.cuibq.com/2018/11/16/SPACE“/">
 
 
 
@@ -135,7 +138,7 @@
   };
 </script>
 
-  <title>我的七秒记忆</title>
+  <title>ceph问题汇总-(NO FREE DRIVE SPACE) | 我的七秒记忆</title>
   
 
 
@@ -184,8 +187,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -226,7 +228,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -288,193 +290,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.cuibq.com/2018/11/16/硬盘接口汇总/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="cuibq">
-      <meta itemprop="description" content="工作生活中总有很多随着时间被遗忘的东西,所以我决定写下来,防止老了记不住">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的七秒记忆">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/16/硬盘接口汇总/" class="post-title-link" itemprop="http://blog.cuibq.com/index.html">硬盘接口汇总</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-11-16 14:30:21 / Modified: 14:51:33" itemprop="dateCreated datePublished" datetime="2018-11-16T14:30:21+08:00">2018-11-16</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/IT/" itemprop="url" rel="index"><span itemprop="name">IT</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h1><h2 id="硬盘"><a href="#硬盘" class="headerlink" title="硬盘"></a>硬盘</h2><ul>
-<li>不支持热插拔</li>
-<li><p>IDE硬盘需要设置通过跳线来设置主从盘</p>
-</li>
-<li><p>主板接口(数据传输口)</p>
-<img src="/2018/11/16/硬盘接口汇总/主板IDE接口.png" title="This is an example image"></li>
-<li>硬盘接口:<img src="/2018/11/16/硬盘接口汇总/硬盘IDE接口.png" title="This is an example image">
-<h2 id="线缆"><a href="#线缆" class="headerlink" title="线缆"></a>线缆</h2></li>
-<li>数据线</li>
-<li>电源线: 左侧母口, 右侧公口<img src="/2018/11/16/硬盘接口汇总/硬盘IDE数据线.png" title="This is an example image">
-</li>
-</ul>
-<h1 id="SATA"><a href="#SATA" class="headerlink" title="SATA"></a>SATA</h1><ul>
-<li>支持热插拔</li>
-<li>SATA不需要设置主从盘跳线。BIOS会为它按照1、2、3顺序编号。这取决于驱动器接在哪个SATA连接器上（安装方便）<img src="/2018/11/16/硬盘接口汇总/硬盘sata口.png" title="This is an example image">
-</li>
-</ul>
-<h1 id="SAS"><a href="#SAS" class="headerlink" title="SAS"></a>SAS</h1><img src="/2018/11/16/硬盘接口汇总/硬盘sas口.png" title="This is an example image">
-<h2 id="SATA接口和SAS接口的区别"><a href="#SATA接口和SAS接口的区别" class="headerlink" title="SATA接口和SAS接口的区别"></a>SATA接口和SAS接口的区别</h2><img src="/2018/11/16/硬盘接口汇总/硬盘sata口和sas口区别.png" title="This is an example image">
-<h1 id="Mini-SAS"><a href="#Mini-SAS" class="headerlink" title="Mini SAS"></a>Mini SAS</h1><img src="/2018/11/16/硬盘接口汇总/MiniSAS口.png" title="This is an example image">
-<h1 id="Mini-SAS-HighDensity-HD-MINI-SAS"><a href="#Mini-SAS-HighDensity-HD-MINI-SAS" class="headerlink" title="Mini SAS HighDensity(HD MINI-SAS)"></a>Mini SAS HighDensity(HD MINI-SAS)</h1><ul>
-<li>新一代SAS存储接口，并提供全新的Mini-SAS HD产品组合。</li>
-<li>该产品满足6Gb/s到12Gb/s的信号带宽要求或相应的SAS 2.1和提议的SAS 3.0行业标准信号规范。<img src="/2018/11/16/硬盘接口汇总/新MiniSAS口.png" title="This is an example image">
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -506,10 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/16/SPACE“/" class="post-title-link" itemprop="http://blog.cuibq.com/index.html">ceph问题汇总-(NO FREE DRIVE SPACE)</a>
+          <h1 class="post-title" itemprop="name headline">ceph问题汇总-(NO FREE DRIVE SPACE)
               
             
           </h1>
@@ -602,9 +417,7 @@
       
 
       
-        
-          
-            <h2 id="问题：ceph-osd-full"><a href="#问题：ceph-osd-full" class="headerlink" title="问题：ceph osd full"></a>问题：ceph osd full</h2><p>Ceph 不允许你向满的 OSD 写入数据，以免丢失数据。在正常的集群中，你应该能收到集群空间将满的警告。 <code>mon osd full ratio</code> 默认为 0.95 、或达到 95% 时它将阻止客户端写入数据。 <code>mon osd nearfull ratio</code> 默认为 0.85 、也就是说达到容量的 85% 时它会产生健康警告。</p>
+        <h2 id="问题：ceph-osd-full"><a href="#问题：ceph-osd-full" class="headerlink" title="问题：ceph osd full"></a>问题：ceph osd full</h2><p>Ceph 不允许你向满的 OSD 写入数据，以免丢失数据。在正常的集群中，你应该能收到集群空间将满的警告。 <code>mon osd full ratio</code> 默认为 0.95 、或达到 95% 时它将阻止客户端写入数据。 <code>mon osd nearfull ratio</code> 默认为 0.85 、也就是说达到容量的 85% 时它会产生健康警告。</p>
 <ol>
 <li>使用下面命令修改阀值</li>
 </ol>
@@ -672,8 +485,6 @@
 <p>如果某些OSD接近完整，但其他的OSD容量很大，那么近乎完整的OSD可能会出现CRUSH重量问题。<br>这些设置仅适用于群集创建期间。 之后需要使用ceph ceph osd set-nearfull-ratio和ceph osd set-nearfull-ratio ceph osd set-full-ratio在OSDMap中进行更改</p>
 </blockquote>
 
-          
-        
       
     </div>
 
@@ -694,160 +505,42 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.cuibq.com/2018/11/12/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="cuibq">
-      <meta itemprop="description" content="工作生活中总有很多随着时间被遗忘的东西,所以我决定写下来,防止老了记不住">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的七秒记忆">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/12/hello-world/" class="post-title-link" itemprop="http://blog.cuibq.com/index.html">Hello World</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-11-12 21:58:13" itemprop="dateCreated datePublished" datetime="2018-11-12T21:58:13+08:00">2018-11-12</time>
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/存储/" rel="tag"># 存储</a>
           
-            
+            <a href="/tags/ceph/" rel="tag"># ceph</a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/12/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/16/硬盘接口汇总/" rel="prev" title="硬盘接口汇总">
+                硬盘接口汇总 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </div>
@@ -857,14 +550,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -885,8 +579,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -962,6 +665,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题：ceph-osd-full"><span class="nav-number">1.</span> <span class="nav-text">问题：ceph osd full</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ceph存储容量"><span class="nav-number">2.</span> <span class="nav-text">ceph存储容量</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1090,6 +809,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
 
   
 
