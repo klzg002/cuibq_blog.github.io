@@ -108,24 +108,28 @@
 
 
 
-  <meta name="description" content="工作生活中总有很多随着时间被遗忘的东西,所以我决定写下来,防止老了记不住">
-<meta name="keywords" content="IT、live">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的七秒记忆">
-<meta property="og:url" content="http://blog.cuibq.com/index.html">
+  <meta name="description" content="CoreDNS手册什么是corednscoredns是go语言写的dns Server，比起之前的bind PowerDNS 和 Unbound优势，比较灵活，有自己的插件链。  CoreDNS is powered by plugins.  插件可以单独使用，也可以一起工作以执行“DNS功能”。目前默认的CoreDNS安装中包含大约30个插件，但也有一大堆外部插件可以编译到CoreDNS中以扩展">
+<meta name="keywords" content="DNS,CoreDNS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dns详解">
+<meta property="og:url" content="http://blog.cuibq.com/2018/11/21/dns详解/index.html">
 <meta property="og:site_name" content="我的七秒记忆">
-<meta property="og:description" content="工作生活中总有很多随着时间被遗忘的东西,所以我决定写下来,防止老了记不住">
+<meta property="og:description" content="CoreDNS手册什么是corednscoredns是go语言写的dns Server，比起之前的bind PowerDNS 和 Unbound优势，比较灵活，有自己的插件链。  CoreDNS is powered by plugins.  插件可以单独使用，也可以一起工作以执行“DNS功能”。目前默认的CoreDNS安装中包含大约30个插件，但也有一大堆外部插件可以编译到CoreDNS中以扩展">
 <meta property="og:locale" content="chinese">
+<meta property="og:image" content="http://blog.cuibq.com/2018/11/21/dns详解/query-processing.png">
+<meta property="og:image" content="http://blog.cuibq.com/2018/11/21/dns详解/CoreDNS-Corefile.png">
+<meta property="og:updated_time" content="2018-11-28T11:27:32.318Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的七秒记忆">
-<meta name="twitter:description" content="工作生活中总有很多随着时间被遗忘的东西,所以我决定写下来,防止老了记不住">
+<meta name="twitter:title" content="dns详解">
+<meta name="twitter:description" content="CoreDNS手册什么是corednscoredns是go语言写的dns Server，比起之前的bind PowerDNS 和 Unbound优势，比较灵活，有自己的插件链。  CoreDNS is powered by plugins.  插件可以单独使用，也可以一起工作以执行“DNS功能”。目前默认的CoreDNS安装中包含大约30个插件，但也有一大堆外部插件可以编译到CoreDNS中以扩展">
+<meta name="twitter:image" content="http://blog.cuibq.com/2018/11/21/dns详解/query-processing.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://blog.cuibq.com/">
+  <link rel="canonical" href="http://blog.cuibq.com/2018/11/21/dns详解/">
 
 
 
@@ -135,7 +139,7 @@
   };
 </script>
 
-  <title>我的七秒记忆</title>
+  <title>dns详解 | 我的七秒记忆</title>
   
 
 
@@ -184,8 +188,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -226,7 +229,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -288,9 +291,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -322,10 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/21/dns详解/" class="post-title-link" itemprop="http://blog.cuibq.com/index.html">dns详解</a>
+          <h1 class="post-title" itemprop="name headline">dns详解
               
             
           </h1>
@@ -418,9 +418,7 @@
       
 
       
-        
-          
-            <h1 id="CoreDNS手册"><a href="#CoreDNS手册" class="headerlink" title="CoreDNS手册"></a>CoreDNS手册</h1><h2 id="什么是coredns"><a href="#什么是coredns" class="headerlink" title="什么是coredns"></a>什么是coredns</h2><p>coredns是go语言写的dns Server，比起之前的bind PowerDNS 和 Unbound优势，比较灵活，有自己的插件链。</p>
+        <h1 id="CoreDNS手册"><a href="#CoreDNS手册" class="headerlink" title="CoreDNS手册"></a>CoreDNS手册</h1><h2 id="什么是coredns"><a href="#什么是coredns" class="headerlink" title="什么是coredns"></a>什么是coredns</h2><p>coredns是go语言写的dns Server，比起之前的bind PowerDNS 和 Unbound优势，比较灵活，有自己的插件链。</p>
 <blockquote>
 <p>CoreDNS is powered by plugins.</p>
 </blockquote>
@@ -658,8 +656,6 @@
 <li>它必须有一个README.md文档。</li>
 </ul>
 
-          
-        
       
     </div>
 
@@ -680,436 +676,38 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.cuibq.com/2018/11/16/硬盘接口汇总/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="cuibq">
-      <meta itemprop="description" content="工作生活中总有很多随着时间被遗忘的东西,所以我决定写下来,防止老了记不住">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的七秒记忆">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/16/硬盘接口汇总/" class="post-title-link" itemprop="http://blog.cuibq.com/index.html">硬盘接口汇总</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-11-16 14:30:21 / Updated at: 14:51:33" itemprop="dateCreated datePublished" datetime="2018-11-16T14:30:21+08:00">2018-11-16</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/IT/" itemprop="url" rel="index"><span itemprop="name">IT</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/DNS/" rel="tag"># DNS</a>
           
-
+            <a href="/tags/CoreDNS/" rel="tag"># CoreDNS</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h1><h2 id="硬盘"><a href="#硬盘" class="headerlink" title="硬盘"></a>硬盘</h2><ul>
-<li>不支持热插拔</li>
-<li><p>IDE硬盘需要设置通过跳线来设置主从盘</p>
-</li>
-<li><p>主板接口(数据传输口)</p>
-<img src="/2018/11/16/硬盘接口汇总/主板IDE接口.png" title="This is an example image"></li>
-<li>硬盘接口:<img src="/2018/11/16/硬盘接口汇总/硬盘IDE接口.png" title="This is an example image">
-<h2 id="线缆"><a href="#线缆" class="headerlink" title="线缆"></a>线缆</h2></li>
-<li>数据线</li>
-<li>电源线: 左侧母口, 右侧公口<img src="/2018/11/16/硬盘接口汇总/硬盘IDE数据线.png" title="This is an example image">
-</li>
-</ul>
-<h1 id="SATA"><a href="#SATA" class="headerlink" title="SATA"></a>SATA</h1><ul>
-<li>支持热插拔</li>
-<li>SATA不需要设置主从盘跳线。BIOS会为它按照1、2、3顺序编号。这取决于驱动器接在哪个SATA连接器上（安装方便）<img src="/2018/11/16/硬盘接口汇总/硬盘sata口.png" title="This is an example image">
-</li>
-</ul>
-<h1 id="SAS"><a href="#SAS" class="headerlink" title="SAS"></a>SAS</h1><img src="/2018/11/16/硬盘接口汇总/硬盘sas口.png" title="This is an example image">
-<h2 id="SATA接口和SAS接口的区别"><a href="#SATA接口和SAS接口的区别" class="headerlink" title="SATA接口和SAS接口的区别"></a>SATA接口和SAS接口的区别</h2><img src="/2018/11/16/硬盘接口汇总/硬盘sata口和sas口区别.png" title="This is an example image">
-<h1 id="Mini-SAS"><a href="#Mini-SAS" class="headerlink" title="Mini SAS"></a>Mini SAS</h1><img src="/2018/11/16/硬盘接口汇总/MiniSAS口.png" title="This is an example image">
-<h1 id="Mini-SAS-HighDensity-HD-MINI-SAS"><a href="#Mini-SAS-HighDensity-HD-MINI-SAS" class="headerlink" title="Mini SAS HighDensity(HD MINI-SAS)"></a>Mini SAS HighDensity(HD MINI-SAS)</h1><ul>
-<li>新一代SAS存储接口，并提供全新的Mini-SAS HD产品组合。</li>
-<li>该产品满足6Gb/s到12Gb/s的信号带宽要求或相应的SAS 2.1和提议的SAS 3.0行业标准信号规范。<img src="/2018/11/16/硬盘接口汇总/新MiniSAS口.png" title="This is an example image">
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.cuibq.com/2018/11/16/SPACE“/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="cuibq">
-      <meta itemprop="description" content="工作生活中总有很多随着时间被遗忘的东西,所以我决定写下来,防止老了记不住">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的七秒记忆">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/16/SPACE“/" class="post-title-link" itemprop="http://blog.cuibq.com/index.html">ceph问题汇总-(NO FREE DRIVE SPACE)</a>
-              
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2018/11/16/硬盘接口汇总/" rel="next" title="硬盘接口汇总">
+                <i class="fa fa-chevron-left"></i> 硬盘接口汇总
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-11-16 14:30:21" itemprop="dateCreated datePublished" datetime="2018-11-16T14:30:21+08:00">2018-11-16</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-27 15:00:52" itemprop="dateModified" datetime="2018-11-27T15:00:52+08:00">2018-11-27</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/IT/" itemprop="url" rel="index"><span itemprop="name">IT</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h2 id="问题：ceph-osd-full"><a href="#问题：ceph-osd-full" class="headerlink" title="问题：ceph osd full"></a>问题：ceph osd full</h2><p>Ceph 不允许你向满的 OSD 写入数据，以免丢失数据。在正常的集群中，你应该能收到集群空间将满的警告。 <code>mon osd full ratio</code> 默认为 0.95 、或达到 95% 时它将阻止客户端写入数据。 <code>mon osd nearfull ratio</code> 默认为 0.85 、也就是说达到容量的 85% 时它会产生健康警告。</p>
-<ol>
-<li>使用下面命令修改阀值</li>
-</ol>
-<p><code>ceph osd set-nearfull-ratio &lt;float[0.0-1.0]&gt;</code></p>
-<p>2.满载集群问题一般产生于测试 Ceph 在小型集群上如何处理 OSD 失败时。当某一节点利用率较高时，集群能够很快掩盖将满和占满率。如果你在测试小型集群上的 Ceph 如何应对 OSD 失败，应该保留足够的空间，然后试着临时降低 mon osd full ratio 和 mon osd nearfull ratio 值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ceph osd set-nearfull-ratio &lt;float[0.0-1.0]&gt;</span><br><span class="line">ceph osd set-full-ratio &lt;float[0.0-1.0]&gt;</span><br><span class="line">ceph osd set-backfillfull-ratio &lt;float[0.0-1.0]&gt;</span><br></pre></td></tr></table></figure></p>
-<p>ceph health 会显示将满的 ceph-osds ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ceph health</span><br><span class="line">HEALTH_WARN 1 nearfull osd(s)</span><br></pre></td></tr></table></figure></p>
-<p>或<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ceph health detail</span><br><span class="line">HEALTH_ERR 1 full osd(s); 1 backfillfull osd(s); 1 nearfull osd(s)</span><br><span class="line">osd.3 is full at 97%</span><br><span class="line">osd.4 is backfill full at 91%</span><br><span class="line">osd.2 is near full at 87%</span><br></pre></td></tr></table></figure></p>
-<p>处理这种情况的最好方法就是增加新的 ceph-osd ，这允许集群把数据重分布到新 OSD 里。</p>
-<ol start="3">
-<li>如果因满载而导致 OSD 不能启动，你可以试着删除那个 OSD 上的一些归置组数据目录。</li>
-</ol>
-<blockquote>
-<p>如果你准备从填满的 OSD 中删除某个归置组，注意不要删除另一个OSD 上的同名归置组，否则你会丢数据。必须在多个 OSD 上保留至少一份数据副本。</p>
-<ol start="4">
-<li>调整OSD权重</li>
-</ol>
-</blockquote>
-<p><code>ceph osd crush reweight osd.3 2.0</code></p>
-<h2 id="ceph存储容量"><a href="#ceph存储容量" class="headerlink" title="ceph存储容量"></a>ceph存储容量</h2><p>当Ceph存储集群接近其最大容量（即mon osd full ratio ）时，Ceph会阻止您写入或读取Ceph OSD守护进程作为防止数据丢失的安全措施。 因此，让生产Ceph存储集群接近其全部比例并不是一个好的做法，因为它牺牲了高可用性。 默认完整比率为.95 ，即容量的95％。 这是一个非常激进的设置，适用于具有少量OSD的测试群集。</p>
-<blockquote>
-<p> 监控群集时，请注意与nearfull比率相关的警告。 这意味着如果一个或多个OSD出现故障，某些OSD的故障可能导致临时服务中断。 考虑添加更多OSD以增加存储容量。</p>
-</blockquote>
-<p>测试群集的常见方案涉及系统管理员从Ceph存储群集中删除Ceph OSD守护进程以观察群集重新平衡; 然后，删除另一个Ceph OSD守护进程，依此类推，直到Ceph存储集群最终达到完全比例并锁定。 我们建议使用测试集群进行一些容量规划。 通过规划，您可以评估为保持高可用性所需的备用容量。 理想情况下，您希望计划一系列Ceph OSD守护程序故障，其中集群可以恢复到active + clean状态，而无需立即替换Ceph OSD守护程序。 您可以在active + degraded状态下运行群集，但这对于正常操作条件并不理想。</p>
-<p>下图描绘了一个简单的Ceph存储集群，其中包含33个Ceph节点，每个主机有一个Ceph OSD守护进程，每个Ceph OSD守护进程读取和写入3TB驱动器。 因此，这个示例性Ceph存储集群的最大实际容量为99TB。 如果Ceph存储集群的剩余容量降至5TB，则集群将不允许Ceph客户端读取和写入数据。 因此Ceph存储集群的运行容量为95TB，而不是99TB。</p>
-<img src="/2018/11/16/SPACE“/ceph-data-cluster.png" title="This is an example image">
-<p>在这样的集群中，一个或两个OSD失败是正常的。 较不频繁但合理的情况涉及机架的路由器或电源故障，这同时降低了多个OSD（例如，OSD 7-12）。 在这种情况下，您仍然应该争取一个可以保持运行并实现active + clean状态的集群 - 即使这意味着在短时间内添加一些具有额外OSD的主机。 如果您的容量利用率过高，您可能不会丢失数据，但如果群集的容量利用率超过完整比率，您仍可能在解决故障域内的中断时牺牲数据可用性。 出于这个原因，我们建议至少进行一些粗略的容量规划。</p>
-<p>确定群集的两个数字：</p>
-<ul>
-<li>OSD的数量。</li>
-<li>集群的总容量</li>
-</ul>
-<p>如果将群集的总容量除以群集中的OSD数，则可以找到群集中OSD的平均平均容量。 考虑将该数字乘以您期望在正常操作期间同时失败的OSD数量（相对较小的数量）。 最后将群集的容量乘以全部比率，以达到最大运行容量; 然后，从您希望未达到合理完整比率的OSD中减去数据量。 使用更多数量的OSD故障（例如，OSD机架）重复上述过程，以达到接近完全比率的合理数量。</p>
-<p>以下设置仅适用于群集创建，然后存储在OSDMap中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mon osd full ratio = .80</span><br><span class="line">mon osd backfillfull ratio = .75</span><br><span class="line">mon osd nearfull ratio = .70</span><br></pre></td></tr></table></figure></p>
-<p><code>mon osd full ratio</code></p>
-<blockquote>
-<p>描述：    OSD之前使用的磁盘空间百分比被视为full 。</p>
-</blockquote>
-<blockquote>
-<p>类型：    浮动</p>
-</blockquote>
-<blockquote>
-<p>默认：    .95</p>
-</blockquote>
-<p><code>mon osd backfillfull ratio</code></p>
-<blockquote>
-<p>描述：    OSD之前使用的磁盘空间百分比被认为太full无法回填。</p>
-</blockquote>
-<blockquote>
-<p>类型：    浮动</p>
-</blockquote>
-<blockquote>
-<p>默认：    .90</p>
-</blockquote>
-<p><code>mon osd nearfull ratio</code></p>
-<blockquote>
-<p>描述：    OSD之前使用的磁盘空间百分比被认为是nearfull 。</p>
-</blockquote>
-<blockquote>
-<p>类型：    浮动</p>
-</blockquote>
-<blockquote>
-<p>默认：    .85</p>
-</blockquote>
-<blockquote>
-<p>如果某些OSD接近完整，但其他的OSD容量很大，那么近乎完整的OSD可能会出现CRUSH重量问题。<br>这些设置仅适用于群集创建期间。 之后需要使用<code>ceph osd set-nearfull-ratio</code> 和<code>ceph osd set-nearfull-ratio</code> <code>ceph osd set-full-ratio</code>在OSDMap中进行更改</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1119,160 +717,15 @@
   </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.cuibq.com/2018/11/12/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="cuibq">
-      <meta itemprop="description" content="工作生活中总有很多随着时间被遗忘的东西,所以我决定写下来,防止老了记不住">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的七秒记忆">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/12/hello-world/" class="post-title-link" itemprop="http://blog.cuibq.com/index.html">Hello World</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-11-12 21:58:13" itemprop="dateCreated datePublished" datetime="2018-11-12T21:58:13+08:00">2018-11-12</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -1293,8 +746,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -1374,6 +836,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CoreDNS手册"><span class="nav-number">1.</span> <span class="nav-text">CoreDNS手册</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是coredns"><span class="nav-number">1.1.</span> <span class="nav-text">什么是coredns</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译与运行"><span class="nav-number">1.2.</span> <span class="nav-text">编译与运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Corefile-介绍"><span class="nav-number">1.3.</span> <span class="nav-text">Corefile 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件的工作模式"><span class="nav-number">1.4.</span> <span class="nav-text">插件的工作模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CoreDNS-如何处理-DNS-请求"><span class="nav-number">1.5.</span> <span class="nav-text">CoreDNS 如何处理 DNS 请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">1.6.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量"><span class="nav-number">1.6.1.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入其他文件"><span class="nav-number">1.6.2.</span> <span class="nav-text">导入其他文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可重复使用的片段"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">可重复使用的片段</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器块"><span class="nav-number">1.6.3.</span> <span class="nav-text">服务器块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指定协议"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">指定协议</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件"><span class="nav-number">1.6.4.</span> <span class="nav-text">插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外部插件"><span class="nav-number">1.6.5.</span> <span class="nav-text">外部插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可能的错误"><span class="nav-number">1.6.6.</span> <span class="nav-text">可能的错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置"><span class="nav-number">1.6.7.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权威服务的文件"><span class="nav-number">1.6.8.</span> <span class="nav-text">权威服务的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转发"><span class="nav-number">1.6.9.</span> <span class="nav-text">转发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转发域到不同的上游"><span class="nav-number">1.6.10.</span> <span class="nav-text">转发域到不同的上游</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kubernetes"><span class="nav-number">1.6.11.</span> <span class="nav-text">Kubernetes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归解析器"><span class="nav-number">1.6.12.</span> <span class="nav-text">递归解析器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写插件"><span class="nav-number">1.6.13.</span> <span class="nav-text">编写插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何调用插件"><span class="nav-number">1.6.14.</span> <span class="nav-text">如何调用插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从插件中记录"><span class="nav-number">1.6.15.</span> <span class="nav-text">从插件中记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权重"><span class="nav-number">1.6.16.</span> <span class="nav-text">权重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档"><span class="nav-number">1.6.17.</span> <span class="nav-text">文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例域名"><span class="nav-number">1.6.18.</span> <span class="nav-text">示例域名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fallthrough"><span class="nav-number">1.7.</span> <span class="nav-text">Fallthrough</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Qualifying-for-main-repo"><span class="nav-number">1.7.1.</span> <span class="nav-text">Qualifying for main repo</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1502,6 +980,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
 
   
 
